@@ -2,8 +2,38 @@ import React from 'react';
 import Logo from '../../assets/img/logo.png';
 import './style.css';
 import RegisterService from '../../services/registerService.js';
+import { useHistory } from "react-router-dom";
+import LoginService from '../../services/loginService.js';
 
 const Register = () =>{
+
+    let history = useHistory();
+
+    const registerUser = async function() {
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        let result = await RegisterService({
+            "name":name,
+            "email":email.toLowerCase(),
+            "password":password
+        
+        });
+
+        if (result.data){
+            let loginResult = await LoginService({
+                "email":email.toLowerCase(),
+                "password":password
+            });
+
+            if (loginResult.data){
+                history.push('/home');
+            }
+        }
+
+    };
+
     return(
         <>
         <div id="branding">
@@ -16,21 +46,12 @@ const Register = () =>{
             <input type="text" placeholder="Name" id="name"/>
             <input type="email" placeholder="E-mail" id="email"/>
             <input type="password" placeholder="Password" id="password"/>
-            <input type="button" id="default-btn" value="Continuar" onClick={() => {
-                let name = document.getElementById('name').value;
-                let email = document.getElementById('email').value;
-                let password = document.getElementById('password').value;
-
-                RegisterService({
-                    "name":name,
-                    "email":email,
-                    "password":password
-                });
-                
-            }}></input>
+            <input type="button" id="default-btn" value="Continuar" onClick={registerUser}></input>
         </form>
         <p>Já possui uma conta?</p>
-        <a href="http://google.com">Entrar</a>
+        <a href="#" onClick={() => {
+            history.push('./login')
+        }}>Entrar</a>
         </div>
         </>
     )

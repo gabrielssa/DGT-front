@@ -1,0 +1,84 @@
+#logout {
+    color: white;
+}
+
+#logout:hover{
+    cursor: pointer;
+}
+
+header{
+    background: rgba(167, 0, 0);
+}
+
+header h1,p{
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+}
+
+header h1{
+    color: white;
+    margin-left: 0.7rem;
+}
+
+header p {
+    float: right;
+    margin-right: 1rem;
+    margin-top: 0.6rem;
+    color: white;
+}
+
+li{
+    width: 30%;
+    background: white;
+    margin: 1rem auto 0px auto;
+    height: 4rem;
+    margin-bottom: 0.2rem;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.55);
+    border-left: 7px solid rgba(167, 0, 0);
+    text-align: center;
+}
+
+ul{
+    margin-top: 2rem;
+    list-style-type: none;
+}
+
+#actions{
+    margin: 2rem auto 0px auto;
+    display: block;
+    width: 30%;
+}
+
+#actions input[type="button"]{
+    border: none;
+    background: rgb(167, 0, 0);
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 5px;
+    height: 2rem;
+    border-radius: 5px;
+}
+
+#actions select,input{
+    height: 2rem;
+    margin-right: 0.25rem;
+}
+
+#actions input[type="button"]:hover{
+    cursor: pointer;
+}
+
+.t-name{
+    display: inline-block;
+}
+
+.t-priority{
+    display: inline-block;
+    margin-left: 0.2rem;
+}
+
+ul p{
+    margin-top: 1.5rem;
+}

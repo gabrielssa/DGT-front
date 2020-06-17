@@ -1,16 +1,15 @@
-import React from 'react';
 import Axios from 'axios';
 
-const RegisterService = (props) =>{
+const RegisterService = props => new Promise((resolve, reject) => {
     console.log("---- As props sendo enviadas ----");
     console.log(props);
     console.log("resultado ----")
     Axios.post('https://dgt-back.herokuapp.com/api/user/register', props).then( resp =>{
-        console.log(resp);
+        resolve(resp);
 
-    }).catch(function(motivo){
-        console.log(motivo);
+    }).catch(function(err){
+        reject(err);
     });
-};
+});
 
 export default RegisterService;

@@ -17,9 +17,7 @@
     margin-bottom: 1rem;
 }
 
-a {
-    display: block;
-}
+
 
 form input {
     display: block;
@@ -72,4 +70,8 @@ form{
 
 #form-container a:hover{
     cursor: pointer;
+}
+
+a{
+    display: block;
 }

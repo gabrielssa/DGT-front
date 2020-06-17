@@ -9,16 +9,20 @@ const Login = () =>{
     let history = useHistory();
 
     const userLogin = async function() {
-        let email = document.getElementById('email').value;
+        let email = document.getElementById('email').value.toLowerCase();
         let password = document.getElementById('password').value;
-
-        let result = await LoginService({
-            "email":email.toLowerCase(),
-            "password":password
+        let result;
+        try{
+            result = await LoginService({
+                "email":email.toLowerCase(),
+                "password":password
+            
+            });
+        }catch(error){
+            alert('Login ou senha incorretos: '+error);
+        }
         
-        });
-        
-        if (result.data){
+        if (result){
             history.push('/home');
         }
 

@@ -16,14 +16,31 @@ const CreateTask = props => new Promise((resolve, reject) => {
     });
 });
 
-const ListTasks = props => new Promise((resolve, reject) =>{
+const ListTasks = order => new Promise((resolve, reject) =>{
     let token = localStorage.getItem('auth-token');
 
     const config = {
         headers: { Authorization: `Bearer ${token}` }
     };
 
-    Axios.get('http://dgt-back.herokuapp.com/api/tasks/', config).then( resp =>{
+    const url = 
+
+    Axios.get("http://dgt-back.herokuapp.com/api/tasks?order="+order, config).then( resp =>{
+        resolve(resp);
+
+    }).catch(function(err){
+        reject(err);
+    });
+});
+
+const RenameTask = props => new Promise((resolve, reject) =>{
+    let token = localStorage.getItem('auth-token');
+
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+
+    Axios.put('http://dgt-back.herokuapp.com/api/tasks/', props, config).then( resp =>{
         resolve(resp);
 
     }).catch(function(err){
@@ -53,4 +70,4 @@ const DeleteTask = id => new Promise((resolve, reject) =>{
 
 
 
-export { CreateTask, ListTasks, DeleteTask};
+export { CreateTask, ListTasks, DeleteTask, RenameTask};

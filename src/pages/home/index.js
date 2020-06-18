@@ -27,6 +27,24 @@ const Home = () => {
         },[loading])
 
         useEffect( () => {
+            const loadTasks = async function(){
+                setLoading(true);
+                const response = await ListTasks(order);
+                setLoading(false);
+    
+                const data = response.data;
+                console.log(data);
+                setTasks(data);
+                if(data.length === 0){
+                    document.getElementById('h2').innerHTML = 'Sem Tarefas';
+                    document.getElementById('exb').style.display = 'none';
+                }else{
+                    document.getElementById('h2').innerHTML = 'Suas tarefas';
+                    document.getElementById('exb').style.display = 'inline';
+                }
+    
+                setListChanged(false);
+            }
             loadTasks();
 
         }, [listChanged]);
@@ -42,25 +60,6 @@ const Home = () => {
                 
             }
         }, [addMode] );
-
-        const loadTasks = async function(){
-            setLoading(true);
-            const response = await ListTasks(order);
-            setLoading(false);
-
-            const data = response.data;
-            console.log(data);
-            setTasks(data);
-            if(data.length === 0){
-                document.getElementById('h2').innerHTML = 'Sem Tarefas';
-                document.getElementById('exb').style.display = 'none';
-            }else{
-                document.getElementById('h2').innerHTML = 'Suas tarefas';
-                document.getElementById('exb').style.display = 'inline';
-            }
-
-            setListChanged(false);
-        }
 
         const userLogout = async function() {
             setLoading(true);
@@ -80,7 +79,7 @@ const Home = () => {
             };
             
             setLoading(true);
-            let createResult = await CreateTask(newTask);
+            await CreateTask(newTask);
             setLoading(false);
             setListChanged(true);
 
@@ -144,7 +143,7 @@ const Home = () => {
                 
                 <p id="exb"> Exibição (<p onClick={handleChangeOrder} id="order">{order}</p>)</p>
                 
-                <img src={Loading} id="loading"/>
+                <img src={Loading} id="loading" alt="loading"/>
 
                 <ul id="myTasks">
                     {tasks.map(task => 

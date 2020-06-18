@@ -8,6 +8,7 @@ import {
 import Register from '../pages/register';
 import Login from '../pages/login';
 import Home from '../pages/home';
+import NotFound from '../components/NotFound';
 
 import PrivateRoute from '../components/PrivateRoute';
 
@@ -18,6 +19,7 @@ const Routes = () => (
         <Route exact path="/" component={Register} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute path="/home" component={Home} />
+        <PrivateRoute component={NotFound} />
       </Switch>
     </Router>
   )

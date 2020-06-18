@@ -50,9 +50,9 @@ const Register = () =>{
             <input type="button" id="default-btn" value="Continuar" onClick={registerUser}></input>
         </form>
         <p>Já possui uma conta?</p>
-        <a href="#" onClick={() => {
+        <span id="login" href="#" onClick={() => {
             history.push('./login')
-        }}>Entrar</a>
+        }}>Entrar</span>
         </div>
         </>
     )

@@ -72,6 +72,11 @@ form{
     cursor: pointer;
 }
 
-a{
+#register{
     display: block;
+    color: rgb(167, 0, 0);
+}
+
+#register:hover{
+    cursor:pointer;
 }

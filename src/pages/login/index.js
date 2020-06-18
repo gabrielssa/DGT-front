@@ -42,8 +42,8 @@ const Login = () =>{
             <input type="button" id="default-btn" value="Login" onClick={userLogin}></input>
         </form>
         <p>Ainda não possui uma conta?</p>
-        <a onClick={() => {
-            history.push('/')}}>Registrar</a>
+        <span id="register" onClick={() => {
+            history.push('/')}}>Registrar</span>
         </div>
         </>
     )

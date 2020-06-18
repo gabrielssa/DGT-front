@@ -23,8 +23,6 @@ const ListTasks = order => new Promise((resolve, reject) =>{
         headers: { Authorization: `Bearer ${token}` }
     };
 
-    const url = 
-
     Axios.get("http://dgt-back.herokuapp.com/api/tasks?order="+order, config).then( resp =>{
         resolve(resp);
 

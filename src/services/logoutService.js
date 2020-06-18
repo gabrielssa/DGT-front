@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import { useHistory} from 'react-router-dom';
 
 const LogoutService = () => new Promise((resolve, reject) => {
 

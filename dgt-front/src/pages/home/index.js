@@ -52,7 +52,7 @@ const Home = () => {
             console.log(data);
             setTasks(data);
             if(data.length === 0){
-                document.getElementById('h2').innerHTML = 'Nenhuma tarefa encontrada';
+                document.getElementById('h2').innerHTML = 'Sem Tarefas';
                 document.getElementById('exb').style.display = 'none';
             }else{
                 document.getElementById('h2').innerHTML = 'Suas tarefas';

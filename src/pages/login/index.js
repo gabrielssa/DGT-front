@@ -6,6 +6,10 @@ import { useHistory } from "react-router-dom";
 
 const Login = () =>{
 
+    useEffect(() => {
+        document.title = 'Eightnote | Login';
+    },[])
+
     let history = useHistory();
 
     const userLogin = async function() {

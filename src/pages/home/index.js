@@ -26,6 +26,10 @@ const Home = () => {
             }
         },[loading])
 
+        useEffect(() => {
+            document.title = 'Eightnote | Home';
+        },[])
+
         useEffect( () => {
             const loadTasks = async function(){
                 setLoading(true);

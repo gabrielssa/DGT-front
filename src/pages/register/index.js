@@ -7,6 +7,10 @@ import LoginService from '../../services/loginService.js';
 
 const Register = () =>{
 
+    useEffect(() => {
+        document.title = 'Eightnote | Register';
+    },[])
+
     let history = useHistory();
 
     const registerUser = async function() {

@@ -21,14 +21,12 @@ const Home = () => {
             const loadingImg = document.getElementById('loading');
             if (loading){
                 loadingImg.style.display = 'inline';
+                
             }else{
                 loadingImg.style.display = 'none';
             }
         },[loading])
 
-        useEffect(() => {
-            document.title = 'Eightnote | Home';
-        },[])
 
         useEffect( () => {
             const loadTasks = async function(){
